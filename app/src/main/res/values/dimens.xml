@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="unit">15sp</dimen>
+    <dimen name="data">70sp</dimen>
+    <dimen name="title">30sp</dimen>
+</resources>

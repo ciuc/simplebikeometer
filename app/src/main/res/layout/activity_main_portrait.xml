@@ -1,0 +1,177 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MeterActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <RelativeLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/label_totals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Totals"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/title" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/label_totals"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/total_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/label_totals"
+            android:layout_alignParentLeft="true"
+            android:text="0:00:00"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/data" />
+
+        <TextView
+            android:id="@+id/odo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/label_totals"
+            android:layout_toLeftOf="@id/label_odo_unit"
+            android:text="0.0"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/data" />
+
+        <TextView
+            android:id="@+id/label_odo_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/odo"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="false"
+            android:text="Km"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/unit" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textColor="@color/color.clock"
+                android:textSize="150sp" />
+
+            <TextView
+                android:id="@+id/label_speed_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/speed"
+                android:layout_toRightOf="@id/speed"
+                android:text="Km/h"
+                android:textColor="@color/color.clock"
+                android:textSize="@dimen/unit" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/label_trip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/trip_distance"
+            android:layout_alignParentLeft="true"
+            android:text="Trip"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/title" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/label_trip"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/trip_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/average_speed"
+            android:layout_toLeftOf="@id/label_trip_avg_spd_unit"
+            android:text="0.0"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/data" />
+
+        <TextView
+            android:id="@+id/label_trip_dist_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/trip_distance"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="false"
+            android:text="Km"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/unit" />
+
+        <TextView
+            android:id="@+id/label_trip_avg_spd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/label_trip_avg_spd_unit"
+            android:layout_alignParentEnd="true"
+            android:text="Avg"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/unit" />
+
+        <TextView
+            android:id="@+id/label_trip_avg_spd_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/average_speed"
+            android:layout_alignParentEnd="true"
+            android:text="Km/h"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/unit" />
+
+
+        <TextView
+            android:id="@+id/average_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/label_trip_avg_spd_unit"
+            android:text="0.0"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/data" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:keepScreenOn="true"
+            android:text="0:00:00"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/data" />
+
+        <RelativeLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="-2dp"
+            android:fitsSystemWindows="true"></RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

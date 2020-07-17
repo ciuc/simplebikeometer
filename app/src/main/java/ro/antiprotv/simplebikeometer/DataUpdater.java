@@ -28,6 +28,7 @@ class DataUpdater extends Thread implements LocationListener {
     private final TextView mTimerView;
     private final TextView mAverageSpeedView;
     private final TextView tripDistanceView;
+    private final TextView altitudeView;
     LocationManager locationManager;
     boolean moving;
     double speed = 0;
@@ -46,7 +47,9 @@ class DataUpdater extends Thread implements LocationListener {
                 long timeDiff = new Date().getTime() - timeLocations.getLast().getTime();
                 mTimerView.setText(MeterActivity.formatTime(trackingService.getTime()));
                 if (timeDiff < 2000) {
-                    mSpeedView.setText(String.format("%.2f", timeLocations.getLast().getLocation().getSpeed() / 1000 * 3600));
+                    Location location = timeLocations.getLast().getLocation();
+                    mSpeedView.setText(String.format("%.2f", location.getSpeed() / 1000 * 3600));
+                    altitudeView.setText(String.format("%.2f", location.getAltitude()));
                     tripDistanceView.setText(String.format("%.2f", trackingService.getDistance()));
                     mAverageSpeedView.setText(String.format("%.2f", trackingService.getTripAverageSpeed()));
                     moving = true;
@@ -72,6 +75,7 @@ class DataUpdater extends Thread implements LocationListener {
         this.mTimerView = activity.findViewById(R.id.timer);
         this.tripDistanceView = activity.findViewById(R.id.trip_distance);
         this.mAverageSpeedView = activity.findViewById(R.id.average_speed);
+        this.altitudeView = activity.findViewById(R.id.altitude);
         mSpeedView.setText("0.00");
 
         this.locationManager = locationManager;

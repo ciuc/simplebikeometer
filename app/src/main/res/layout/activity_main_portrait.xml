@@ -96,10 +96,30 @@
             android:textSize="@dimen/title" />
 
         <View
+            android:id="@+id/divider_trip"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@id/label_trip"
             android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/altitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_trip"
+            android:layout_alignParentLeft="true"
+            android:text="000"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/data" />
+        <TextView
+            android:id="@+id/altitude_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/altitude"
+            android:layout_alignBaseline="@id/altitude"
+            android:text="m"
+            android:textColor="@color/color.clock"
+            android:textSize="@dimen/unit" />
 
         <TextView
             android:id="@+id/trip_distance"
@@ -147,7 +167,7 @@
             android:id="@+id/average_speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_above="@id/timer"
             android:layout_toLeftOf="@id/label_trip_avg_spd_unit"
             android:text="0.0"
             android:textColor="@color/color.clock"
@@ -168,8 +188,22 @@
             android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="-2dp"
-            android:fitsSystemWindows="true"></RelativeLayout>
+            android:layout_marginBottom="2dp"
+            android:fitsSystemWindows="true">
+
+            <Button
+                android:id="@+id/button_reset_trip"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:text="RST TRIP"
+                android:clickable="false"
+                android:background="@drawable/memory"
+                android:textColor="@color/button.color.off" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
